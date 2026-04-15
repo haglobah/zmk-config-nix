@@ -31,9 +31,9 @@
 #define LANG_L  4
 #define GAME_L  5
 
-#define KEYS_LEFT 9 8 7 6 5 19 18 17 16 15 29 28 27 26 25 // left hand - right
-#define KEYS_RIGHT 4 3 2 1 0 14 13 12 11 10 24 23 22 21 20  // right hand - left
-#define THUMBS 35 34 33 32 31 30                        // thumbs exchanged
+#define KEYS_LEFT 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24  // left hand
+#define KEYS_RIGHT 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29  // right hand
+#define THUMBS 30 31 32 33 34 35                        // thumbs
 
 ZMK_UNICODE_SINGLE(sym_lozenge, N2, N5, C, A)
 ZMK_UNICODE_SINGLE(sym_estimates, N2, N2, N5, N9)
@@ -75,10 +75,10 @@ ZMK_UNICODE_SINGLE(sym_succeeds, N2, N2, N7, B)
         /*                KEY POSITIONS
 
           ╭────────────────────╮ ╭────────────────────╮
-          │  9   8   7   6   5 │ │  4   3   2   1   0 │
-          │ 19  18  17  16  15 │ │ 14  13  12  11  10 │
-          │ 29  28  27  26  25 │ │ 24  23  22  21  20 │
-          ╰───────╮ 35  34  33 │ │ 32  31  30 ╭───────╯
+          │  0   1   2   3   4 │ │  5   6   7   8   9 │
+          │ 10  11  12  13  14 │ │ 15  16  17  18  19 │
+          │ 20  21  22  23  24 │ │ 25  26  27  28  29 │
+          ╰───────╮ 30  31  32 │ │ 33  34  35 ╭───────╯
                   ╰────────────╯ ╰────────────╯        */
 
         #define COMBO_TIME 20
@@ -151,13 +151,13 @@ ZMK_UNICODE_SINGLE(sym_succeeds, N2, N2, N7, B)
         base_layer {
             bindings = <
                 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                     &kp APOS      &kp Y         &kp U         &kp L         &kp J          &kp B         &kp P         &kp F         &kp W         &kp Q
+                     &kp Q         &kp W         &kp F         &kp P         &kp B          &kp J         &kp L         &kp U         &kp Y         &kp APOS
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                     &lhm LALT O   &lhm LGUI I   &lhm RSHFT E  &lhm LCTRL N  &kp M          &kp G         &rhm LCTRL T  &rhm LSHFT S  &rhm LGUI R   &rhm LALT A
+                     &lhm LALT A   &lhm LGUI R   &lhm LSHFT S  &lhm LCTRL T  &kp G          &kp M         &rhm LCTRL N  &rhm RSHFT E  &rhm LGUI I   &rhm LALT O
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                     &kp FSLH      &kp DOT       &kp COMMA     &kp H         &kp K          &kp V         &kp D         &kp C         &kp X         &kp Z
+                     &kp Z         &kp X         &kp C         &kp D         &kp V          &kp K         &kp H         &kp COMMA     &kp DOT       &kp FSLH
                 // ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                /*&            &*/              &lt NAV ESC    &lt SYM SPC   &lt NUM RET    &lt NUM DEL   &lt SYM BSPC  &lt NAV TAB  /*&             &*/
+                /*&            &*/              &lt NAV TAB   &lt SYM BSPC  &lt NUM DEL    &lt NUM RET   &lt SYM SPC   &lt NAV ESC  /*&             &*/
                 //                             ╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯
             >;
         };
@@ -165,11 +165,11 @@ ZMK_UNICODE_SINGLE(sym_succeeds, N2, N2, N7, B)
         sym_layer {
             bindings = <
                 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                    &kp UNDER     &kp AT        &de_ue        &sym_lozenge  &keyword       &sym_estimates &sym_paragraph &sym_degree  &aliases      &sym_euro
+                    &sym_euro      &aliases      &sym_degree  &sym_paragraph &sym_estimates &keyword      &sym_lozenge  &de_ue        &kp AT        &kp UNDER
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                    &de_oe        &kp RBRC      &kp LBRC      &kp PRCNT     &en_dash       &sym_unequal   &kp EQUAL     &kp PLUS      &kp MINUS     &de_ae
+                    &de_ae         &kp MINUS     &kp PLUS      &kp EQUAL     &sym_unequal   &en_dash      &kp PRCNT     &kp LBRC      &kp RBRC      &de_oe
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                    &kp FSLH      &kp GT        &kp LT        &kp DLLR      &em_dash       &sym_almost    &obs_link     &obs_connect  &md_hrule     &obs_connect_new
+                    &obs_connect_new &md_hrule   &obs_connect  &obs_link     &sym_almost    &em_dash      &kp DLLR      &kp LT        &kp GT        &kp FSLH
                 // ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                 /*&            &*/               ___           ___           ___            ___           ___           ___          /*&             &*/
                 //                             ╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯
@@ -179,11 +179,11 @@ ZMK_UNICODE_SINGLE(sym_succeeds, N2, N2, N7, B)
         num_layer {
             bindings = <
                 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                     &kp F10      &kp F6        &kp F5        &kp F4         &kp STAR       &kp PLUS      &kp N4        &kp N5        &kp N6        &kp UNDER
+                     &kp UNDER     &kp N6        &kp N5        &kp N4        &kp PLUS       &kp STAR      &kp F4        &kp F5        &kp F6        &kp F10
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                     &kp F11       &kp F3        &kp F2        &kp F1        &kp LSHIFT     &kp N0        &kp N1        &kp N2        &kp N3        &kp DOT
+                     &kp DOT       &kp N3        &kp N2        &kp N1        &kp N0         &kp LSHFT     &kp F1        &kp F2        &kp F3        &kp F11
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                     &kp F12       &kp F9        &kp F8        &kp F7        &kp COLON      &kp EQUAL     &kp N7        &kp N8        &kp N9        &kp COMMA
+                     &kp COMMA     &kp N9        &kp N8        &kp N7        &kp EQUAL      &kp COLON     &kp F7        &kp F8        &kp F9        &kp F12
                 // ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                 /*&            &*/               ___           ___           &kp N0         &kp N0        ___           ___          /*&             &*/
                 //                             ╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯
@@ -193,11 +193,11 @@ ZMK_UNICODE_SINGLE(sym_succeeds, N2, N2, N7, B)
         nav_layer {
             bindings = <
                 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                     ___          &bt BT_NXT    &bt BT_PRV     ___           &bt BT_CLR     &bt BT_CLR    &kp C_BRI_UP   &kp C_VOL_UP &kp C_VOL_DN  &kp C_BRI_DN
+                     &kp C_BRI_DN &kp C_VOL_DN  &kp C_VOL_UP  &kp C_BRI_UP   &bt BT_CLR     &bt BT_CLR    ___           &bt BT_PRV    &bt BT_NXT    ___
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                    &kp RIGHT      &kp UP       &kp DOWN      &kp LEFT      ___            ___           &sk LCTRL      &sk LSHFT      &sk LGUI        &sk LALT
+                     &sk LALT      &sk LGUI      &sk LSHFT     &sk LCTRL     ___            ___           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                    &kp END        &kp K_NEXT   &kp K_PREV    &kp HOME      ___            &term_paste   &ret_swap      &site_link     &site_link_cut ___
+                     ___          &site_link_cut &site_link    &ret_swap     &term_paste    ___           &kp HOME      &kp K_PREV    &kp K_NEXT    &kp END
                 // ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                 /*&            &*/               ___           ___           ___            ___           ___           ___          /*&             &*/
                 //                             ╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯
@@ -207,11 +207,11 @@ ZMK_UNICODE_SINGLE(sym_succeeds, N2, N2, N7, B)
         lang_layer {
             bindings = <
                 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                    &de_eszett     &el_psi      &el_upsilon   &el_lambda    &el_epsilon     &el_beta      &el_pi       &el_phi        &el_omega     &el_sigma
+                     &el_sigma     &el_omega     &el_phi       &el_pi        &el_beta       &el_epsilon   &el_lambda    &el_upsilon   &el_psi       &de_eszett
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                    &el_omikron     &el_iota       ___        &el_nu        &el_mu          &el_gamma     &el_tau        ___          &el_rho      &el_alpha
+                     &el_alpha     &el_rho       ___           &el_tau       &el_gamma      &el_mu        &el_nu        ___           &el_iota      &el_omikron
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                    &de_ue         &de_oe        &de_ae       &el_eta       &el_kappa       &el_theta     &el_delta     &el_chi       &el_xi       &el_zeta
+                     &el_zeta      &el_xi        &el_chi       &el_delta     &el_theta      &el_kappa     &el_eta       &de_ae        &de_oe        &de_ue
                 // ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                                  ___           ___           ___            ___           ___           ___
                 //                             ╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯
@@ -223,11 +223,11 @@ ZMK_UNICODE_SINGLE(sym_succeeds, N2, N2, N7, B)
                 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
                     ___           ___           ___           ___           ___            ___           ___           ___           ___           ___
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                     &kp RIGHT     &kp UP        &kp DOWN      &kp LEFT      ___            ___           &kp RET       &kp SPC       &kp ESC       &kp TAB
+                    &kp TAB        &kp ESC       &kp SPC       &kp RET       ___            ___           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                     ___            ___           ___           ___           ___            ___           ___           ___           ___           ___
                 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                                 ___           ___           ___            ___           ___           ___
+                                                ___           ___           ___            ___           ___           ___
                 //                             ╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯
             >;
         };
