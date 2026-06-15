@@ -51,6 +51,8 @@ ZMK_UNICODE_SINGLE(sym_succeeds, N2, N2, N7, B)
     macros {
         ZMK_MACRO(scope, wait-ms = <1>; tap-ms = <1>; bindings = <&kp COLON &kp COLON>;)
         ZMK_MACRO(keyword, wait-ms = <1>; tap-ms = <1>; bindings = <&kp HASH &kp COLON>;)
+        ZMK_MACRO(reallyequal, wait-ms = <1>; tap-ms = <1>; bindings = <&kp EQUAL &kp EQUAL &kp EQUAL>;)
+        ZMK_MACRO(reallynotequal, wait-ms = <1>; tap-ms = <1>; bindings = <&kp EXCL &kp EQUAL &kp EQUAL>;)
         ZMK_MACRO(site_link, wait-ms = <20>; tap-ms = <20>; bindings = <&kp LC(L) &kp LC(C) &kp LG(TAB) &kp LC(V) &kp LC(TAB)>;)
         ZMK_MACRO(site_link_cut, wait-ms = <20>; tap-ms = <20>; bindings = <&kp LC(L) &kp LC(C) &kp LC(W) &kp LG(TAB) &kp LC(V)>;)
         ZMK_MACRO(ret_swap, wait-ms = <20>; tap-ms = <20>; bindings = <&kp RET &kp LG(TAB)>;)
@@ -96,7 +98,7 @@ ZMK_UNICODE_SINGLE(sym_succeeds, N2, N2, N7, B)
         COMBO(underscore, &kp UNDER, 13 23, COMBO_TIME)
         COMBO(tilde, &kp TILDE, 14 24, COMBO_TIME)
         COMBO(equal, &kp EQUAL, 21 22, COMBO_TIME)
-        /* COMBO(tab, &kp TAB, 22 23, COMBO_TIME) */
+        COMBO(reallyequal, &reallyequal, 22 23, COMBO_TIME)
 
         COMBO(switch_lang, &sl LANG_L, 21 23, COMBO_TIME)
         COMBO(toggle_game_layer, &tog GAME_L, 20 23, COMBO_TIME)
@@ -113,7 +115,7 @@ ZMK_UNICODE_SINGLE(sym_succeeds, N2, N2, N7, B)
         COMBO(minus, &kp MINUS, 16 26, COMBO_TIME)
         COMBO(star, &kp STAR, 17 27, COMBO_TIME)
         COMBO(plus, &kp PLUS, 18 28, COMBO_TIME)
-        /* COMBO(minus, &kp MINUS, 26 27, COMBO_TIME) */
+        COMBO(reallynotequal, &reallynotequal, 26 27, COMBO_TIME)
         COMBO(caps_word, &caps_word, 26 28, COMBO_TIME)
         COMBO(colon, &kp COLON, 27 28, COMBO_TIME)
 
