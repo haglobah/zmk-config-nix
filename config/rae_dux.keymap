@@ -60,7 +60,7 @@ ZMK_UNICODE_SINGLE(sym_succeeds, N2, N2, N7, B)
         ZMK_MACRO(obs_connect, wait-ms = <1>; tap-ms = <1>; bindings = <&kp MINUS &kp LT &kp GT &kp MINUS &kp SPC>;)
         ZMK_MACRO(obs_connect_new, wait-ms = <1>; tap-ms = <1>; bindings = <&sym_precedes &sym_succeeds>;)
         ZMK_MACRO(obs_link, wait-ms = <1>; tap-ms = <1>; bindings = <&kp LBKT &kp LBKT>;)
-        ZMK_MACRO(md_hrule, wait-ms = <1>; tap-ms = <1>; bindings = <&kp MINUS &kp MINUS &kp MINUS>;)
+        ZMK_MACRO(md_hrule, wait-ms = <1>; tap-ms = <1>; bindings = <&kp MINUS &kp MINUS &kp MINUS &kp RET>;)
         ZMK_MACRO(aliases, wait-ms = <1>; tap-ms = <1>; bindings = <&kp A &kp L &kp I &kp A &kp S &kp E &kp S &kp COLON>;)
     };
 
