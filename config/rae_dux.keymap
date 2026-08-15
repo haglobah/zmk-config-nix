@@ -50,6 +50,7 @@ ZMK_UNICODE_SINGLE(sym_succeeds, N2, N2, N7, B)
 / {
     macros {
         ZMK_MACRO(scope, wait-ms = <1>; tap-ms = <1>; bindings = <&kp COLON &kp COLON>;)
+        ZMK_MACRO(https, wait-ms = <1>; tap-ms = <1>; bindings = <&kp H &kp T &kp T &kp P &kp S &kp COLON &kp FSLH &kp FSLH>;)
         ZMK_MACRO(keyword, wait-ms = <1>; tap-ms = <1>; bindings = <&kp HASH &kp COLON>;)
         ZMK_MACRO(reallyequal, wait-ms = <1>; tap-ms = <1>; bindings = <&kp EQUAL &kp EQUAL &kp EQUAL>;)
         ZMK_MACRO(reallynotequal, wait-ms = <1>; tap-ms = <1>; bindings = <&kp EXCL &kp EQUAL &kp EQUAL>;)
@@ -199,7 +200,7 @@ ZMK_UNICODE_SINGLE(sym_succeeds, N2, N2, N7, B)
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                      &sk LALT      &sk LGUI      &sk LSHFT     &sk LCTRL     ___            ___           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                     ___          &site_link_cut &site_link    &ret_swap     &term_paste    ___           &kp HOME      &kp K_PREV    &kp K_NEXT    &kp END
+                     &https       &site_link_cut &site_link    &ret_swap     &term_paste    ___           &kp HOME      &kp K_PREV    &kp K_NEXT    &kp END
                 // ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                 /*&            &*/               ___           ___           ___            ___           ___           ___          /*&             &*/
                 //                             ╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯
