@@ -2,6 +2,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     zmk-nix = {
       url = "github:lilyinstarlight/zmk-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -9,55 +11,60 @@
   };
 
   outputs =
-    {
-      self,
+    inputs@{
+      flake-parts,
       nixpkgs,
       zmk-nix,
+      ...
     }:
-    let
-      forAllSystems = nixpkgs.lib.genAttrs (nixpkgs.lib.attrNames zmk-nix.packages);
-    in
-    {
-      packages = forAllSystems (system: rec {
-        default = firmware;
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = nixpkgs.lib.attrNames zmk-nix.packages;
 
-        firmware = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
-          name = "firmware";
+      perSystem =
+        { pkgs, inputs', ... }:
+        {
+          packages = rec {
+            default = firmware;
 
-          src = nixpkgs.lib.sourceFilesBySuffices self [
-            ".board"
-            ".cmake"
-            ".conf"
-            ".defconfig"
-            ".dts"
-            ".h"
-            ".dtsi"
-            ".json"
-            ".keymap"
-            ".overlay"
-            ".shield"
-            ".yml"
-            "_defconfig"
-          ];
+            firmware = inputs'.zmk-nix.legacyPackages.buildSplitKeyboard {
+              name = "firmware";
 
-          board = "nice_nano@2.0.0";
-          shield = "rae_dux_%PART%";
+              src = nixpkgs.lib.sourceFilesBySuffices inputs.self [
+                ".board"
+                ".cmake"
+                ".conf"
+                ".defconfig"
+                ".dts"
+                ".h"
+                ".dtsi"
+                ".json"
+                ".keymap"
+                ".overlay"
+                ".shield"
+                ".yml"
+                "_defconfig"
+              ];
 
-          zephyrDepsHash = "sha256-mUJpGWlU+rGbcWtKs/SuombCJ3RcIDMTiuMicwLX1D4=";
+              board = "nice_nano@2.0.0";
+              shield = "rae_dux_%PART%";
 
-          meta = {
-            description = "ZMK firmware";
-            license = nixpkgs.lib.licenses.mit;
-            platforms = nixpkgs.lib.platforms.all;
+              zephyrDepsHash = "sha256-mUJpGWlU+rGbcWtKs/SuombCJ3RcIDMTiuMicwLX1D4=";
+
+              meta = {
+                description = "ZMK firmware";
+                license = nixpkgs.lib.licenses.mit;
+                platforms = nixpkgs.lib.platforms.all;
+              };
+            };
+
+            flash = inputs'.zmk-nix.packages.flash.override { inherit firmware; };
+            update = inputs'.zmk-nix.packages.update;
+          };
+
+          devShells.default = pkgs.mkShell {
+            inputsFrom = [ inputs'.zmk-nix.devShells.default ];
+            packages = [ pkgs.just ];
           };
         };
-
-        flash = zmk-nix.packages.${system}.flash.override { inherit firmware; };
-        update = zmk-nix.packages.${system}.update;
-      });
-
-      devShells = forAllSystems (system: {
-        default = zmk-nix.devShells.${system}.default;
-      });
     };
 }
