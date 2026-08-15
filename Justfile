@@ -1,0 +1,2 @@
+flash:
+   nix run .#flash
