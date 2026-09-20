@@ -91,7 +91,8 @@ ZMK_UNICODE_SINGLE(sym_succeeds, N2, N2, N7, B)
         COMBO(scope, &scope, 3 13, COMBO_TIME)
         COMBO(caret, &kp CARET, 4 14, COMBO_TIME)
         COMBO(lpar, &kp LPAR, 11 12, COMBO_TIME)
-        /* COMBO(lbrc, &kp LBRC, 11 13, COMBO_TIME) */
+          // r + t: herdr leader key
+        COMBO(orchestrator_leader, &kp F12, 11 13, COMBO_TIME)
         COMBO(lbkt, &kp LBKT, 12 13, COMBO_TIME)
         COMBO(lbrc, &kp LBRC, 13 14, COMBO_TIME)
         COMBO(bslash, &kp BSLH, 11 21, COMBO_TIME)
