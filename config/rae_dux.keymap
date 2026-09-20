@@ -110,7 +110,8 @@ ZMK_UNICODE_SINGLE(sym_succeeds, N2, N2, N7, B)
         COMBO(at, &kp AT, 8 18, COMBO_TIME)
         COMBO(rbrc, &kp RBRC, 15 16, COMBO_TIME)
         COMBO(rbkt, &kp RBKT, 16 17, COMBO_TIME)
-        /* COMBO(rbrc, &kp RBRC, 16 18, COMBO_TIME) */
+        // N + I: dedicated kitty leader, preserving normal letter taps.
+        COMBO(kitty_leader, &kp LC(SPC), 16 18, COMBO_TIME)
         COMBO(rpar, &kp RPAR, 17 18, COMBO_TIME)
         COMBO(ampersand, &kp AMPS, 15 25, COMBO_TIME)
         COMBO(minus, &kp MINUS, 16 26, COMBO_TIME)
@@ -198,7 +199,7 @@ ZMK_UNICODE_SINGLE(sym_succeeds, N2, N2, N7, B)
                 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
                      &kp C_BRI_DN &kp C_VOL_DN  &kp C_VOL_UP  &kp C_BRI_UP   &bt BT_CLR     &bt BT_CLR    ___           &bt BT_PRV    &bt BT_NXT    ___
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                     &sk LALT      &sk LGUI      &sk LSHFT     &sk LCTRL     ___            ___           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT
+                &kp LC(LG(C_BRI_DN)) &sk LGUI  &sk LSHFT  &kp LC(LG(C_BRI_UP)) ___          ___           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                      &https       &site_link_cut &site_link    &ret_swap     &term_paste    ___           &kp HOME      &kp K_PREV    &kp K_NEXT    &kp END
                 // ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┴───────────────────────────╯
